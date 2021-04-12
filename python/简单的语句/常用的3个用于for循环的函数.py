@@ -48,7 +48,7 @@ for i in range(len(g)):
         g[i] = 'even'
 print(g)
 
-# //todo方法er：
+# //todo方法二：
 g = [1, 5, 3, 20, 6, 2, 7]
 for i,ele in enumerate(g):
     if ele % 2 == 0:
