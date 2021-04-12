@@ -24,15 +24,15 @@ d = [5, 6, 7, 8, 9]
 result = []
 for i in range(len(c)):
     result.append(c[i]+d[i])
-print(result)    
+print(result)    #结果为[6, 8, 10, 12, 14]
 
 # //todo方法二：
 result =[]
 e = list(zip(c,d))
-print(e)
+print(e)         #结果为[(1, 5), (2, 6), (3, 7), (4, 8), (5, 9)]
 for x,y in e:
     result.append(x+y);
-print(result)    
+print(result)    #结果为[6, 8, 10, 12, 14]
 
 
 # //!3、enumerate() 枚举函数:
@@ -46,11 +46,11 @@ g = [1, 5, 3, 20, 6, 2, 7]
 for i in range(len(g)):
     if g[i] % 2 == 0:
         g[i] = 'even'
-print(g)
+print(g)    #结果为[1, 5, 3, 'even', 'even', 'even', 7]
 
 # //todo方法二：
 g = [1, 5, 3, 20, 6, 2, 7]
 for i,ele in enumerate(g):
     if ele % 2 == 0:
         g[i] = 'even'
-print(g)        
+print(g)      #结果为[1, 5, 3, 'even', 'even', 'even', 7]
