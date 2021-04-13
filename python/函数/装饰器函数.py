@@ -101,13 +101,3 @@ count = 10000000
 a1 = count_down_this(count) 
 a2 = test_list_append_this(count) 
 a3 = test_list_compare_this(count)
-
-
-        
-
-
-    
-
-
-    
-
