@@ -14,7 +14,10 @@ print(lst)
 a = [i for i in range(100) if i %3 ==0]
 print(a)
 
-# 已知字符串 b = 'Life is short, you need to know how to cherish'，统计这个字符串中每个单词的字母数量
+'''
+已知字符串 b = 'Life is short, you need to know how to cherish'，统计这个字符串中每个单词的字母数量
+'''
+
 b = 'Life is short, you need to know how to cherish'
 
 # //todo 1、统计单词的字符数：[('Life', 4), ('is', 2), ('short,', 6), ('you', 3), ('need', 4), ('to', 2), ('know', 4), ('how', 3), ('to', 2), ('cherish', 7)]

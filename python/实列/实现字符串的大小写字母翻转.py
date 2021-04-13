@@ -1,5 +1,6 @@
-
-# 实现对输入字符串的大小写字母翻转（即大写变小写、小写变大写）
+'''
+实现对输入字符串的大小写字母翻转（即大写变小写、小写变大写）
+'''
 word = input('please input an Eglish string:')
 new_list =[]
 for i in word:
