@@ -9,6 +9,7 @@
     7、测试的时候，要发布到 https://test.pypi.org/ 上面，测试账号：martin5257，密码：Martin13798764075，邮箱：martinroad5257@gmail.com
     8、打包和分发项目：https://packaging.python.org/guides/distributing-packages-using-setuptools/#setup-py
     9、在该项目目录下执行：python3 setup.py sdist bdist_wheel
+    10、发布到test.pypi，命令：twine upload --repository-url https://test.pypi.org/test_package，然后输入test.pypi的账号：martin5257，密码：Martin13798764075
 
 '''
 
