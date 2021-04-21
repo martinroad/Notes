@@ -1,5 +1,6 @@
 '''
- 接入百度语音Python SDK：https://ai.baidu.com/ai-doc/SPEECH/zk4nlz99s
+    将文字合成mp3语音文件
+    接入百度语音Python SDK：https://ai.baidu.com/ai-doc/SPEECH/zk4nlz99s
 '''
 
 from aip import AipSpeech
@@ -14,8 +15,9 @@ client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 # client.setSocketTimeoutInMillis(1000*30)  #通过打开的连接传输数据的超时时间（单位：毫秒）
 
 text = '起先：远赴人间惊鸿宴，一睹人间美貌，后来：远赴人间惊鸿宴，谈笑不语'
+text = '你好吗'
 english_text = 'If it is not because I really like you, I pester you why I should be so humble, so unbearable, and even constantly revise my bottom line until it is worthless in the end.'
-result  = client.synthesis(english_text, 'zh', 1, {
+result  = client.synthesis(text, 'zh', 1, {
     'spd': 4, #语速，取值0-9，默认为5中语速
     'pit': 4, #音调，取值0-9，默认为5中语调
     'vol': 5, #音量，取值0-15，默认为5中音量
