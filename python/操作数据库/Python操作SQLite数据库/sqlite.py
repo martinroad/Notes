@@ -5,6 +5,7 @@
 
 import sqlite3
 
+# 数据名为 db
 path = './sqlitedb/db.sqlite'
 
 # 1、该 API 打开一个到 SQLite 数据库文件 database 的链接
@@ -45,8 +46,9 @@ cour.execute(inster_sql)
 connection.commit()
 
 # 7、查询users表中的数据
+# select * from users where id = 4;
 select_sql ="""
-    select * from users where id = 1
+    select * from users;
 """
 cour.execute(select_sql)
 result = cour.fetchall()
