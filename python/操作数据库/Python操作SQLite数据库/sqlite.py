@@ -16,10 +16,10 @@ cour = connection.cursor()
 # 3、sql语句，创建一个名为 users 的表
 create_sql = """
     create table if not exists users(
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name text not null,
-        age INTEGER,
-        gender text
+        `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+        `name` text not null,
+        `age` INTEGER,
+        `gender` text
     );
 """
 
@@ -35,7 +35,7 @@ connection.commit()
 
 # 5、向 users 表中插入数据
 inster_sql ="""
-    insert into users(name, age, gender) values
+    insert into users(`name`, `age`, `gender`) values
     ('张三', 20, 'male'),
     ('李四', 20, 'female'),
     ('王五', 20, 'male');

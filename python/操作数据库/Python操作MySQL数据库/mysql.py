@@ -4,11 +4,11 @@ import mysql_util
 # 1、创建数据表
 create_sql ="""
     CREATE TABLE IF NOT EXISTS users(
-	id INT AUTO_INCREMENT,
-	user_name VARCHAR(100) NOT NULL,
-    age INT,
-    sex BOOL,
-    PRIMARY KEY(id)
+	`id` INT AUTO_INCREMENT,
+	`user_name` VARCHAR(100) NOT NULL,
+    `age` INT,
+    `sex` BOOL,
+    PRIMARY KEY(`id`)
     );
 """
 
@@ -17,7 +17,7 @@ write_result = mysql_util.execute_write_query(db, create_sql)
 
 # 2、向表中插入数据
 inster_sql ="""
-    insert into users(user_name, age, sex) values
+    insert into users(`user_name`, `age`, `sex`) values
     ('张三', 20, 0),
     ('李四', 20, 1),
     ('王五', 20, 0);
