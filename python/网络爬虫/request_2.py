@@ -34,6 +34,6 @@ for row in dicts:
 df = pd.DataFrame(dicts)
 
 # 写入csv文件，mode ='a'表示是往后面追加文件
-df.to_csv('ncov1.csv', mode='a', encoding='utf_8_sig') 
+df.to_csv('ncov1.csv', mode='a', encoding='utf_8_sig')
 
 
