@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d16cde-5fb0-41d8-bab7-6bda9c6706ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/if-else，switch，fro 条件分支.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/常量定义.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/指针.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/枚举定义.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/if-else，switch，for 条件分支.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/函数作为参数.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/函数闭包及其应用.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HelloWorld.go" beforeDir="false" afterPath="$PROJECT_DIR$/变量定义.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/if-else，switch，fro 条件分支.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/常量定义.go" beforeDir="false" afterPath="$PROJECT_DIR$/常量定义.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/指针.go" beforeDir="false" afterPath="$PROJECT_DIR$/指针.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,28 +47,12 @@
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Go Build.go build if-else，switch，fro 条件分支.go">
-    <configuration name="go build 变量定义.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.go build 指针.go">
+    <configuration name="go build 函数作为参数.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="语法基础" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/变量定义.go" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build 常量定义.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="语法基础" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/常量定义.go" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build 枚举定义.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="语法基础" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/枚举定义.go" />
+      <filePath value="$PROJECT_DIR$/函数作为参数.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -76,6 +61,22 @@
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/指针.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build 函数闭包及其应用.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="语法基础" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/函数闭包及其应用.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build if-else，switch，for 条件分支.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="语法基础" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/if-else，switch，for 条件分支.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -89,11 +90,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build if-else，switch，fro 条件分支.go" />
-        <item itemvalue="Go Build.go build 常量定义.go" />
         <item itemvalue="Go Build.go build 指针.go" />
-        <item itemvalue="Go Build.go build 枚举定义.go" />
-        <item itemvalue="Go Build.go build 变量定义.go" />
+        <item itemvalue="Go Build.go build 函数闭包及其应用.go" />
+        <item itemvalue="Go Build.go build 函数作为参数.go" />
+        <item itemvalue="Go Build.go build if-else，switch，for 条件分支.go" />
+        <item itemvalue="Go Build.go build if-else，switch，fro 条件分支.go" />
       </list>
     </recent_temporary>
   </component>

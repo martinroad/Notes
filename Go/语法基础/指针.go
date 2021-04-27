@@ -13,6 +13,17 @@ func swap(a, b *int) {
 	*b = temp
 }
 
+/**
+ * @Description: 利用函数的特性，可以接受多个参数，可以返回多个结果来做交换
+ * @param a
+ * @param b
+ * @return int
+ * @return int
+ */
+func swap1(a, b int) (int, int) {
+	return b, a
+}
+
 func main() {
 	a := 10
 	var b *int = &a       // b指向a的地址
@@ -21,7 +32,13 @@ func main() {
 	*b = 100              // 通过b可以修改a的值
 	fmt.Println(a, *b, b) // 结果为：100 100 0xc00000a0a0
 
+	// 利用指针进行交换
 	c, d := 1, 100
 	swap(&c, &d)
 	fmt.Println(c, d) // 结果为：100 1
+
+	// 利用函数来进行交换
+	e, f := 1, 100
+	e, f = swap1(e, f)
+	println(e, f) // 结果为：100 1
 }

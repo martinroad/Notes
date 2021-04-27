@@ -1,8 +1,8 @@
+//在Go语言中，使用const 关键字定义常量，所谓常量，就是在程序运行时，值不会被修改的标识
+
 package main
 
 import "fmt"
-
-//在Go语言中，使用const 关键字定义常量，所谓常量，就是在程序运行时，值不会被修改的标识
 
 func main() {
 	const LEGTH int32 = 10
