@@ -23,8 +23,9 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        if (msg instanceof FullHttpRequest) {
-            FullHttpRequest httpRequest = (FullHttpRequest) msg;
+        System.out.println(msg);
+        if (msg instanceof HttpRequest) {
+            HttpRequest httpRequest = (HttpRequest) msg;
             try {
                 System.out.println("请求方式：" + httpRequest.method().name());
                 System.out.println("请求URI：" + httpRequest.uri());
@@ -41,7 +42,7 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
                 FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, body);
                 // 获取到response的头部进行初始化
                 HttpHeaders headers = response.headers();
-                response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf-8");
+                headers.set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf-8");
                 headers.set(HttpHeaderNames.CONTENT_LENGTH, body.readableBytes());
 
                 // 将响应体写入到channel
@@ -52,8 +53,6 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("处理请求失败...");
-            } finally {
-                httpRequest.release();
             }
         }
     }
