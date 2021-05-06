@@ -23,9 +23,10 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        System.out.println(msg);
         if (msg instanceof HttpRequest) {
             HttpRequest httpRequest = (HttpRequest) msg;
+            System.out.println("请求方式：" +((HttpRequest) msg).method());
+            System.out.println("请求uri："+((HttpRequest) msg).uri());
             try {
                 System.out.println("请求方式：" + httpRequest.method().name());
                 System.out.println("请求URI：" + httpRequest.uri());
@@ -48,8 +49,8 @@ public class HttpServerHandler extends ChannelInboundHandlerAdapter {
                 // 将响应体写入到channel
                 //ctx.write(body);
                 //ctx.flush();
-                //ctx.writeAndFlush(response);
-                ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);  // 添加监听器，关闭channel
+                ctx.writeAndFlush(response);
+                //ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);  // 添加监听器，关闭channel
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("处理请求失败...");

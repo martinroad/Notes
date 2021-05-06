@@ -8,11 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="netty" />
+        <module name="socket" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="netty" target="1.5" />
-      <module name="TestHttpNetty" target="1.8" />
+      <module name="netty" target="1.8" />
+      <module name="socket" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
