@@ -12,7 +12,7 @@ import io.netty.util.CharsetUtil;
  * 自定义服务端处理器
  * 需求：用户提交一个请求后，返回结果
  */
-public class ServerHandler extends ChannelInboundHandlerAdapter {
+public class HttpServerHandler extends ChannelInboundHandlerAdapter {
 
     /**
      * 当Channel中有来自于客户端的数据时，就会触发该方法的执行
@@ -22,39 +22,56 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
      * @throws Exception
      */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //System.out.println("msg = " + msg.getClass());
-        //System.out.println("客户端的地址：" + ctx.channel().remoteAddress());
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        if (msg instanceof FullHttpRequest) {
+            FullHttpRequest httpRequest = (FullHttpRequest) msg;
+            try {
+                System.out.println("请求方式：" + httpRequest.method().name());
+                System.out.println("请求URI：" + httpRequest.uri());
 
-        try {
-            if (msg instanceof HttpRequest) {
-                HttpRequest request = (HttpRequest) msg;
-                System.out.println("请求方式：" + request.method().name());
-                System.out.println("请求URI：" + request.uri());
-
-                if ("/favicon.ico".equals(request.uri())) {
+                if ("/favicon.ico".equals(httpRequest.uri())) {
                     System.out.println("不处理/favicon.ico请求");
                     return;
                 }
 
                 // 构造response的响应体
-                ByteBuf body = Unpooled.copiedBuffer("hello netty world", CharsetUtil.UTF_8);
+                String result = "hello netty world";
+                ByteBuf body = Unpooled.copiedBuffer(result, CharsetUtil.UTF_8);
                 // 生成响应对象
-                //DefaultFullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, body);
-                //// 获取到response的头部进行初始化
-                //HttpHeaders headers = response.headers();
-                //headers.set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
-                //headers.set(HttpHeaderNames.CONTENT_LENGTH, body.readableBytes());
+                FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, body);
+                // 获取到response的头部进行初始化
+                HttpHeaders headers = response.headers();
+                response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf-8");
+                headers.set(HttpHeaderNames.CONTENT_LENGTH, body.readableBytes());
 
                 // 将响应体写入到channel
                 //ctx.write(body);
                 //ctx.flush();
-                ctx.writeAndFlush(body);
-                //ctx.writeAndFlush(msg).addListener(ChannelFutureListener.CLOSE);  // 添加监听器，关闭
+                //ctx.writeAndFlush(response);
+                ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);  // 添加监听器，关闭channel
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("处理请求失败...");
+            } finally {
+                httpRequest.release();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+    }
+
+    /**
+     * 建立连接时，打印客户端地址
+     *
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("连接的客户端地址:" + ctx.channel().remoteAddress());
+    }
+
+    @Override
+    public void channelReadComplete(ChannelHandlerContext ctx) {
+        ctx.flush();
     }
 
     /**
@@ -65,7 +82,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
      * @throws Exception
      */
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         // 关闭Channel
         ctx.close();
