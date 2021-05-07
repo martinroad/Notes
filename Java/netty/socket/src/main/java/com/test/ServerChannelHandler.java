@@ -9,11 +9,14 @@ import java.util.concurrent.TimeUnit;
 /**
  * ChannelInboundHandlerAdapter 中的 channelRead（）方法不会自动释放接受到的来自于对方的msg所占用的所有资源
  */
- public class ServerChannelHandler extends ChannelInboundHandlerAdapter {
+public class ServerChannelHandler extends ChannelInboundHandlerAdapter {
+    int counter;
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        counter++;
         // 将来自于客户端的数据显示在服务端的控制台
-        System.out.println(ctx.channel().remoteAddress() + "， " + msg);
+        System.out.println(counter + "from client：" + msg);
         // 向客户端发送数据
         ctx.channel().writeAndFlush("from server：" + UUID.randomUUID());
         // 让线程暂停500ms
