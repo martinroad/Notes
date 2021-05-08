@@ -10,9 +10,7 @@ import io.netty.channel.DefaultChannelPromise;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.FixedLengthFrameDecoder;
-import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.*;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 
@@ -40,7 +38,11 @@ public class ServerService {
                             //pipeline.addLast(new DelimiterBasedFrameDecoder(5 * 1024, Unpooled.copiedBuffer("|".getBytes(StandardCharsets.UTF_8))));
 
                             // 3、FixedLengthFrameDecoder 基于固定长度帧解码器，固定长度为1024 byte， FixedLengthFrameDecoder 一定要放在StringDecoder前面
-                            pipeline.addLast(new FixedLengthFrameDecoder(1024));
+                            //pipeline.addLast(new FixedLengthFrameDecoder(1024));
+
+                            // 4、LengthFieldBasedFrameDecoder 基于长度域的帧解码器， LengthFieldBasedFrameDecoder 一定要放在StringDecoder前面
+                            pipeline.addLast(new LengthFieldBasedFrameDecoder(5 * 1024, 0, 4, 0, 4));
+                            pipeline.addLast(new LengthFieldPrepender(4));
 
                             pipeline.addLast(new StringDecoder());  // StringDecoder：字符串解码器，将Channel中的ByteBuf数据解码为String
                             pipeline.addLast(new StringEncoder());  // StringEncoder：字符串编码器，将String编码为要发送到Channel中的ByteBuf

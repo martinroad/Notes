@@ -52,10 +52,10 @@ public class ClientHandler extends SimpleChannelInboundHandler<String> {
 
 
         // 2、DelimiterBasedFrameDecoder 使用指定分隔符 "|"，对数据尽心拆包粘包
-        for (int i = 0; i < 3; i++) {
-            ctx.writeAndFlush(msg + "|");
-            //ctx.channel().writeAndFlush(msg + "|");
-        }
+        //for (int i = 0; i < 3; i++) {
+        //    ctx.writeAndFlush(msg + "|");
+        //    //ctx.channel().writeAndFlush(msg + "|");
+        //}
 
         // 3、FixedLengthFrameDecoder 基于固定长度帧解码器， 对数据尽心拆包粘包
         for (int i = 0; i < 3; i++) {
