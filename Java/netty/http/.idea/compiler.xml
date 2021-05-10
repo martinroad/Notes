@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="websocket" />
         <module name="netty" />
         <module name="socket" />
       </profile>
@@ -14,6 +15,7 @@
     <bytecodeTargetLevel>
       <module name="netty" target="1.8" />
       <module name="socket" target="8" />
+      <module name="websocket" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
